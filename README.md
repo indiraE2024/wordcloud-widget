@@ -1,6 +1,8 @@
 # Word Cloud Visualization
 
-This project is a React-based word cloud visualization using D3.js and the `d3-cloud` plugin. You can adjust the number of words displayed in the word cloud using a slider, and each word in the cloud is clickable.
+This is a React-based word cloud visualization using D3.js and the `d3-cloud` plugin. You can adjust the number of words displayed in the word cloud using a slider, and each word in the cloud is clickable.
+
+![Word Cloud Screenshot](./public/Screenshot.png)
 
 ## Features
 

@@ -1,0 +1,12 @@
+body {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; */
+  margin: 10;
+  font-family: "Quicksand", sans-serif;
+}
+
+svg {
+  border-style: dashed;
+}
