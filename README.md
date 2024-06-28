@@ -44,7 +44,7 @@ This is a React-based word cloud visualization using D3.js and the `d3-cloud` pl
 2. Start the development server:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
 3. Open your browser and navigate to `http://localhost:3000` to view the word cloud visualization.
