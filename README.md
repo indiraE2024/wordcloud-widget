@@ -70,3 +70,12 @@ word-cloud-visualization/
 ├── README.md
 └── ...
 ```
+
+## Built With
+
+- **[React](https://reactjs.org/)** - A JavaScript library for building user interfaces.
+- **[Vite](https://vitejs.dev/)** - A fast build tool for modern web projects.
+- **[D3](https://d3js.org/)** - A JavaScript library for producing dynamic, interactive data visualizations in web browsers.
+- **[D3-cloud](https://github.com/jasondavies/d3-cloud)** - A Word Cloud layout for D3.
+- **[React-d3-cloud](https://github.com/Yoctol/react-d3-cloud)** - A React component for creating word clouds using D3-cloud.
+- **[ChatGPT](https://openai.com/chatgpt)** - An AI language model by OpenAI, used for generating human-like text based on context and past conversations.
