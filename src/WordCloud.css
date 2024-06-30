@@ -1,9 +1,21 @@
 body {
-  font-family: "Courier New", Courier, monospace;
+  background-color: rgb(236, 234, 234);
+  /* font-family: "Courier New", Courier, monospace;
+  font-family: "Roboto", sans-serif; */
+  font-family: "Open Sans", sans-serif;
+  font-size: large;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column; /* Stack the SVG and slider vertically */
+}
+
+#root {
+  background-color: white; /* Container element for the SVG and slider */
+  padding: 90px;
+  border-radius: 25px;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.3);
+  margin: 20px;
 }
 
 .wordcloud-container text {
@@ -16,15 +28,10 @@ WordCloud.css .wordcloud-container {
   align-items: center;
   height: 100vh; /* Full height of the viewport */
 }
-/* 
-svg {
-  border: 1px solid #ccc; 
 
+/* svg {
+  border: 1px solid #ccc;
 } */
-
-.slider-container {
-  margin-top: 10px; /* Space between the SVG and the slider */
-}
 
 /* WordCloud.css */
 .word-cloud text {
@@ -32,23 +39,23 @@ svg {
 }
 
 .word0 {
-  fill: #1f77b4; /* Color 1 */
+  fill: #1f77b4;
 }
 
 .word1 {
-  fill: #2ca02c; /* Color 2 */
+  fill: #2ca02c;
 }
 
 .word2 {
-  fill: #17becf; /* Color 3 */
+  fill: #17becf;
 }
 
 .word3 {
-  fill: #44a0a1; /* Color 4 */
+  fill: #44a0a1;
 }
 
 .word4 {
-  fill: #9467bd; /* Color 5 */
+  fill: #9467bd;
 }
 
 .word5 {
@@ -72,7 +79,36 @@ svg {
   font-size: 20px; /* Default font size */
 }
 
+/* Add styles for the slider and the datalist container */
+
 .slider-container {
-  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 45px; /* Space between the SVG and the slider */
+  width: 900px;
+  /* padding-top: 5px; */
   text-align: center;
+}
+
+#num-words-slider {
+  width: 60%;
+  text-align: center;
+  background: #d3d3d3;
+}
+
+.datalist-container {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+/* 
+.datalist-container label {
+  text-align: right;
+  flex: 1;
+} */
+
+input[type="range"] {
+  width: 100%;
 }

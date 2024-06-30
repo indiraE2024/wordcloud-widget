@@ -7,6 +7,8 @@ const WordCloud = () => {
   const svgRef = useRef();
   const [wordCounts, setWordCounts] = useState([]);
   const [numWords, setNumWords] = useState(50); // Initial number of words
+  const sliderRef = useRef(null);
+  const outputRef = useRef(null);
 
   useEffect(() => {
     // Fetch the data from the JSON file
@@ -73,48 +75,44 @@ const WordCloud = () => {
     }
   }, [wordCounts, numWords]); // Re-render when numWords changes
 
+  useEffect(() => {
+    const slider = sliderRef.current;
+    const output = outputRef.current;
+
+    output.innerHTML = slider.value; // Initialize with current slider value
+
+    const handleSliderInput = () => {
+      output.innerHTML = slider.value;
+    };
+
+    slider.addEventListener("input", handleSliderInput);
+
+    return () => {
+      slider.removeEventListener("input", handleSliderInput);
+    };
+  }, []);
+
   return (
     <div className="wordcloud-container">
-      <svg ref={svgRef}></svg>
       <div className="slider-container">
-        <label htmlFor="num-words-slider">Number of Words:</label>
+        <label htmlFor="num-words-slider">Frequent Words and Entities:</label>
+        <span id="demo" ref={outputRef}>
+          {numWords}
+        </span>
         <br />
         <input
           id="num-words-slider"
           type="range"
-          min="1"
+          min="0"
           max="100"
           value={numWords}
-          list="tickmarks"
+          ref={sliderRef}
+          step="25"
           onChange={(e) => setNumWords(parseInt(e.target.value))}
         />
-
-        <datalist id="tickmarks">
-          <option value="1" label="1">
-            1
-          </option>
-          <option value="25" label="25">
-            25
-          </option>
-          <option value="50" label="50">
-            50
-          </option>
-          <option value="75" label="75">
-            75
-          </option>
-          <option value="100" label="100">
-            100
-          </option>
-        </datalist>
-
-        <div className="datalist-container">
-          <label>1 </label>
-          <label>25 </label>
-          <label>50 </label>
-          <label>75 </label>
-          <label>100 </label>
-        </div>
       </div>
+
+      <svg ref={svgRef}></svg>
     </div>
   );
 };
