@@ -9,7 +9,7 @@ This is a React-based word cloud visualization using D3.js and the `d3-cloud` pl
 - Allows the number of words displayed to be adjusted via a slider.
 - Words in the cloud are clickable and trigger a custom event.
 
-![Word Cloud Screen recording](./public/ScreenRecording02.gif)
+![Word Cloud Screen recording](./public/ScreenRecording03.gif)
 
 ## Installation
 
