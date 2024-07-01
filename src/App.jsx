@@ -1,6 +1,6 @@
 // App.jsx
 import React from "react";
-import WordCloud from "./WordCloud-modal.jsx";
+import WordCloud from "./WordCloud.jsx";
 import "./WordCloud.css";
 
 function App() {

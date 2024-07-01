@@ -16,6 +16,7 @@ body {
   border-radius: 25px;
   box-shadow: 0 0 0px rgba(0, 0, 0, 0.3);
   margin: 20px;
+  overflow: hidden; /* Prevent scrollbars */
 }
 
 .wordcloud-container text {
@@ -27,6 +28,9 @@ WordCloud.css .wordcloud-container {
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full height of the viewport */
+  width: 100vw;
+  max-width: 900px;
+  max-height: 500px;
 }
 
 /* svg {
@@ -86,7 +90,7 @@ WordCloud.css .wordcloud-container {
   flex-direction: column;
   align-items: center;
   margin-bottom: 45px; /* Space between the SVG and the slider */
-  width: 900px;
+  max-width: 900px;
   /* padding-top: 5px; */
   text-align: center;
 }

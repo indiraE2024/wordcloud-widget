@@ -12,7 +12,7 @@ const WordCloud = () => {
 
   useEffect(() => {
     // Fetch the data from the JSON file
-    fetch("/data.json") //this version is the array from original
+    fetch("/data.json")
       .then((response) => response.json())
       .then((data) => {
         const processedData = Object.entries(data[0]).map(([word, count]) => ({
@@ -25,6 +25,22 @@ const WordCloud = () => {
   }, []);
 
   useEffect(() => {
+    const updateSvgSize = () => {
+      const svg = d3.select(svgRef.current);
+      const width = Math.min(window.innerWidth, 900);
+      const height = Math.min(window.innerHeight, 500);
+      svg.attr("width", width).attr("height", height);
+    };
+
+    window.addEventListener("resize", updateSvgSize);
+    updateSvgSize(); // Initial call to set size based on current window dimensions
+
+    return () => {
+      window.removeEventListener("resize", updateSvgSize);
+    };
+  }, []);
+
+  useEffect(() => {
     if (wordCounts.length === 0) return;
 
     // Sort words by value and take the top `numWords`
@@ -33,7 +49,10 @@ const WordCloud = () => {
       .slice(0, numWords);
 
     const layout = cloud()
-      .size([900, 500])
+      .size([
+        Math.min(window.innerWidth, 900),
+        Math.min(window.innerHeight, 500),
+      ])
       .words(displayedWords)
       .padding(1) // Add padding to loosen word spacing
       .rotate(() => (Math.random() > 0.9 ? 90 : 0)) // Rotate words by 0 or 90 degrees
@@ -48,8 +67,6 @@ const WordCloud = () => {
       svg.selectAll("*").remove(); // Clear previous words
 
       const g = svg
-        .attr("width", layout.size()[0])
-        .attr("height", layout.size()[1])
         .append("g")
         .attr(
           "transform",
@@ -69,7 +86,6 @@ const WordCloud = () => {
         .on("click", (event, d) => {
           // Handle the click event
           console.log(`Word clicked: ${d.text}`);
-          // Add your custom click handler code here
           alert(`Word clicked: ${d.text}`);
         });
     }
