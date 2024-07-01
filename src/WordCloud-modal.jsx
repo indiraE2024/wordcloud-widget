@@ -105,7 +105,7 @@ const WordCloud = () => {
         <input
           id="num-words-slider"
           type="range"
-          min="0"
+          min="25"
           max="100"
           value={numWords}
           ref={sliderRef}
